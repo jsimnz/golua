@@ -25,7 +25,7 @@ func main() {
 
 	L.GetField(lua.LUA_GLOBALSINDEX, "print")
 	L.PushString("Hello World!")
-	L.Call(1,0)
+	L.Call(1, 0)
 
 	L.PushGoFunction(test)
 	L.PushGoFunction(test)
@@ -34,15 +34,14 @@ func main() {
 
 	L.PushGoFunction(test2)
 	L.PushInteger(42)
-	L.Call(1,0)
+	L.Call(1, 0)
 
-
-	L.Call(0,0)
-	L.Call(0,0)
-	L.Call(0,0)
+	L.Call(0, 0)
+	L.Call(0, 0)
+	L.Call(0, 0)
 
 	// this will fail as we didn't register test2 function
-	err := L.DoString("test2(42)")
+	err := L.DoString("print(42)")
 
 	fmt.Printf("Ciao %v\n", err)
 }
